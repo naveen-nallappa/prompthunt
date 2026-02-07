@@ -471,7 +471,10 @@
           filtered = filtered.filter(p =>
             p.title.toLowerCase().includes(query) ||
             p.tagline.toLowerCase().includes(query) ||
-            p.prompt.toLowerCase().includes(query)
+            p.prompt.toLowerCase().includes(query) ||
+            p.author.toLowerCase().includes(query) ||
+            p.category.toLowerCase().includes(query) ||
+            (p.tool && p.tool.toLowerCase().includes(query))
           );
         }
 
