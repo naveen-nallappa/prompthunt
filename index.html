@@ -373,11 +373,10 @@
       // Check if a prompt is user-added (can be deleted)
       const isUserPrompt = (id) => !initialPrompts.find(p => p.id === id);
 
-      // Get comment count for a prompt
+      // Get comment count for a prompt (only counts actual comments in state)
       const getCommentCount = (promptId) => {
         const promptComments = comments[promptId] || [];
-        const prompt = prompts.find(p => p.id === promptId);
-        return promptComments.length + (prompt?.commentCount || 0);
+        return promptComments.length;
       };
 
       // Add a new comment
