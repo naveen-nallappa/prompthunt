@@ -85,18 +85,12 @@
       'Role Type 1': 'bg-brand-100 text-brand-600',
       'Role Type 2': 'bg-emerald-100 text-emerald-700',
       'Role Type 3': 'bg-violet-100 text-violet-700',
-      'Role Type 4': 'bg-rose-100 text-rose-700',
-      'Role Type 5': 'bg-amber-100 text-amber-700',
-      'Role Type 6': 'bg-cyan-100 text-cyan-700',
     };
 
     const categoryIconNames = {
       'Role Type 1': 'user',
       'Role Type 2': 'users',
       'Role Type 3': 'briefcase',
-      'Role Type 4': 'building',
-      'Role Type 5': 'target',
-      'Role Type 6': 'star',
     };
 
     // Available tools
@@ -134,7 +128,7 @@
         title: "The Expert Advisor",
         tagline: "Transform Claude into a domain expert with deep, nuanced responses",
         prompt: "You are a world-class expert in [DOMAIN] with 20+ years of experience. When I ask questions, provide detailed answers that include: 1) The core concept explained simply, 2) Common misconceptions to avoid, 3) Practical examples, and 4) Advanced insights that only experts would know. Always cite your reasoning.",
-        category: "Role Type 6",
+        category: "Role Type 1",
         tool: "AI Assistant",
         author: "Sarah Chen",
         avatar: "SC",
@@ -162,7 +156,7 @@
         title: "Creative Story Engine",
         tagline: "Generate compelling narratives with rich characters and plot twists",
         prompt: "Write a story in the style of [AUTHOR/GENRE]. Include: a protagonist with a hidden flaw, an unexpected ally, rising tension across 3 acts, sensory-rich descriptions, and a twist that recontextualizes earlier events. End with a line that haunts the reader.",
-        category: "Role Type 4",
+        category: "Role Type 2",
         tool: "AI Assistant",
         author: "Emily Rodriguez",
         avatar: "ER",
@@ -190,7 +184,7 @@
         title: "Email Transformer",
         tagline: "Convert rough thoughts into polished professional emails",
         prompt: "Transform my rough notes into a professional email. Determine the appropriate tone (formal/casual) from context. Structure with: clear subject line, brief context, main ask/update highlighted, specific next steps with owners and dates. Keep under 150 words. Offer 3 subject line options.",
-        category: "Role Type 5",
+        category: "Role Type 3",
         tool: "M365 Copilot",
         author: "Lisa Thompson",
         avatar: "LT",
@@ -204,7 +198,7 @@
         title: "Socratic Teacher",
         tagline: "Learn through guided questioning instead of direct answers",
         prompt: "Help me understand [TOPIC] using the Socratic method. Don't give direct answers. Instead: 1) Ask probing questions that reveal my assumptions, 2) Guide me to discover insights myself, 3) When I'm stuck, give hints not solutions, 4) Celebrate my breakthroughs. Adapt difficulty to my responses.",
-        category: "Role Type 6",
+        category: "Role Type 1",
         tool: "AI Assistant",
         author: "James Wilson",
         avatar: "JW",
@@ -246,7 +240,7 @@
         title: "Meeting Summary Pro",
         tagline: "Transform chaotic meeting notes into clear action items",
         prompt: "Summarize this meeting transcript. Provide: 1) One-paragraph executive summary, 2) Key decisions made (with who decided), 3) Action items in table format (task, owner, deadline), 4) Open questions that need follow-up, 5) Topics deferred to future meetings. Flag any conflicting statements.",
-        category: "Role Type 5",
+        category: "Role Type 3",
         tool: "M365 Copilot",
         author: "Rachel Green",
         avatar: "RG",
@@ -416,7 +410,7 @@
         author: 'You',
       });
 
-      const categories = ['All', 'Role Type 1', 'Role Type 2', 'Role Type 3', 'Role Type 4', 'Role Type 5', 'Role Type 6'];
+      const categories = ['All', 'Role Type 1', 'Role Type 2', 'Role Type 3'];
 
       const handleVote = (id) => {
         if (votedPrompts.has(id)) {
@@ -787,7 +781,7 @@
               {/* Right Column - Leaderboard Sidebar */}
               <div className="lg:w-80 flex-shrink-0">
                 <div className="bg-white rounded-xl border border-gray-100 p-4 sticky top-24">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <Icon name="trophy" className="w-5 h-5 text-amber-500" />
                       <span className="font-semibold text-ebony">Top Contributors</span>
@@ -799,6 +793,7 @@
                       View all
                     </button>
                   </div>
+                  <p className="text-xs text-gray-400 mb-4">Ranked by cumulative upvotes across all prompts</p>
 
                   <div className="space-y-2">
                     {leaderboard.slice(0, 5).map((entry, index) => (
@@ -860,7 +855,7 @@
                       </div>
                       <div>
                         <h2 className="text-xl font-bold text-ebony">Leaderboard</h2>
-                        <p className="text-sm text-gray-500">Top contributors by total upvotes</p>
+                        <p className="text-sm text-gray-500">Ranked by cumulative upvotes across all submitted prompts</p>
                       </div>
                     </div>
                     <button
