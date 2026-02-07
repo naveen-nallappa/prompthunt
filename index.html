@@ -267,6 +267,7 @@
 
     // Convert kebab-case to PascalCase for Lucide icons
     const toPascalCase = (str) => {
+      if (!str) return '';
       return str.split('-').map(word =>
         word.charAt(0).toUpperCase() + word.slice(1)
       ).join('');
@@ -277,7 +278,7 @@
       const ref = React.useRef(null);
 
       useEffect(() => {
-        if (ref.current) {
+        if (ref.current && name) {
           ref.current.innerHTML = '';
           const pascalName = toPascalCase(name);
           const iconDef = lucide.icons[pascalName];
@@ -664,8 +665,8 @@
                           <p className="text-gray-600 text-sm mb-2">{prompt.tagline}</p>
                         </div>
                         <div className="flex flex-wrap items-center gap-2 self-start">
-                          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${categoryColors[prompt.category]}`}>
-                            <Icon name={categoryIconNames[prompt.category]} className="w-3 h-3" />
+                          <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${categoryColors[prompt.category] || 'bg-gray-100 text-gray-600'}`}>
+                            <Icon name={categoryIconNames[prompt.category] || 'tag'} className="w-3 h-3" />
                             {prompt.category}
                           </div>
                           {prompt.tool && (
